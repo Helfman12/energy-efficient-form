@@ -79,18 +79,35 @@ Should you have any questions or need further assistance, please feel free to re
 Best regards,
     `;
 
-    // שולח את המייל באמצעות EmailJS
-    emailjs.send("service_rewjveb", "template_aiilvt2", {
-        email: "matthewrnvt@gmail.com", // מייל קבוע
-        message: response
-    }).then(function(response) {
-        // הצגת הודעת הצלחה
-        document.getElementById('successMessage').style.display = 'block';
-        // ניקוי הטופס
-        document.getElementById('applicationForm').reset();
-        console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-        alert('Error sending the form: ' + error.text);
-        console.log('FAILED...', error);
-    });
+    // שולח את המייל לשני אימיילים
+    const sendToFirstEmail = () => {
+        return emailjs.send("service_rewjveb", "template_aiilvt2", {
+            email: "matthewrnvt@gmail.com", // אימייל ראשון
+            message: response
+        });
+    };
+
+    const sendToSecondEmail = () => {
+        return emailjs.send("service_rewjveb", "template_aiilvt2", {
+            email: "mogassconstruction@gmail.com", // החלף ב-aימייל השני (למשל, "example@email.com")
+            message: response
+        });
+    };
+
+    // שולח את המייל לשני האימיילים ברצף
+    sendToFirstEmail()
+        .then(function(response) {
+            console.log('First email sent!', response.status, response.text);
+            return sendToSecondEmail();
+        })
+        .then(function(response) {
+            console.log('Second email sent!', response.status, response.text);
+            // הצגת הודעת הצלחה לאחר שליחת שני המיילים
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('applicationForm').reset();
+        })
+        .catch(function(error) {
+            alert('Error sending the form: ' + error.text);
+            console.log('FAILED...', error);
+        });
 });
