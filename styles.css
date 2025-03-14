@@ -11,31 +11,31 @@ body {
 
 .form-container {
     background-color: #ffffff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px; /* הרחבנו קצת את הרוחב */
-    margin: 20px 0;
+    max-width: 600px;
+    margin: 10px 0;
     position: relative;
 }
 
 h1 {
     text-align: center;
     color: #1e3a8a;
-    font-size: 28px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #1e3a8a;
     font-weight: 500;
     font-size: 14px;
@@ -74,7 +74,7 @@ select:focus {
 
 .radio-group {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin-top: 5px;
 }
 
@@ -85,10 +85,10 @@ select:focus {
 
 .project-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* גדלנו את המינימום ל-140px */
-    gap: 20px; /* מרווחים אחידים יותר */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
     margin-top: 10px;
-    padding: 10px 0; /* מרווח קל מלמעלה ומלמטה */
+    padding: 10px 0;
 }
 
 .project-card {
@@ -96,16 +96,16 @@ select:focus {
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
-    padding: 20px; /* הגדלנו את הפדים */
-    border-radius: 12px; /* פינות מעוגלות יותר */
+    padding: 15px;
+    border-radius: 10px;
     border: 2px solid #e2e8f0;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
     font-weight: 500;
     color: #1e3a8a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* צל עדין */
-    height: 140px; /* גובה קבוע לכל קלף */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 120px;
     justify-content: center;
 }
 
@@ -118,16 +118,16 @@ select:focus {
 }
 
 .project-card input {
-    display: none; /* מסתיר את ה-checkbox */
+    display: none;
 }
 
 .project-card input:checked + i,
 .project-card input:checked + i + span {
-    color: #10b981; /* ירוק בהיר כשנבחר */
+    color: #10b981;
 }
 
 .project-card input:checked ~ .check-mark {
-    opacity: 1; /* מראה את הסימון כשהקלף נבחר */
+    opacity: 1;
 }
 
 .project-card .check-mark {
@@ -143,17 +143,17 @@ select:focus {
     align-items: center;
     justify-content: center;
     font-size: 12px;
-    opacity: 0; /* מסתיר את הסימון בהתחלה */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .project-card i {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 6px;
 }
 
 .project-card span {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.2;
 }
 
@@ -172,6 +172,7 @@ button {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    min-height: 50px;
 }
 
 button:hover {

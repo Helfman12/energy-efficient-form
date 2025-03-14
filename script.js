@@ -13,7 +13,7 @@ document.getElementById('applicationForm').addEventListener('submit', function(e
     const zipCode = document.getElementById('zipCode').value;
     const email = document.getElementById('email').value;
     const energyEfficiency = document.querySelector('input[name="energyEfficiency"]:checked').value;
-    const income = document.querySelector('input[name="income"]:checked').value;
+    const annualIncome = document.getElementById('annualIncome').value; // נתון חדש
     const seniorCitizen = document.querySelector('input[name="seniorCitizen"]:checked').value;
     const monthlyExpenses = document.getElementById('monthlyExpenses').value;
     const savingType = document.getElementById('savingType').value;
@@ -72,6 +72,13 @@ Customer Benefits
 - Finance Options: Available
 
 --------------------------------
+Additional Information
+- Annually Income: $${annualIncome}
+- Senior Citizen: ${seniorCitizen}
+- Monthly Expenses: $${monthlyExpenses}
+- Most Valuable Saving: ${savingType}
+
+--------------------------------
 Reminder: Rebates are valid for the same business day. Please ensure that a material order is submitted by 6:30 PM.
 
 Should you have any questions or need further assistance, please feel free to reach out.
@@ -80,10 +87,10 @@ Best regards,
     `;
 
     // פונקציות לשליחת המייל
-
+    
 
     const sendToSecondEmail = () => {
-        return emailjs.send("service_rewjveb", "template_9qa4r48", {
+        return emailjs.send("service_rewjveb", "template_aiilvt2", {
             email: "mogassconstruction@gmail.com",
             message: response
         }).then(result => {
@@ -91,7 +98,7 @@ Best regards,
             return result;
         }).catch(error => {
             console.error('Error sending to mogassconstruction@gmail.com:', error);
-            return Promise.reject(error); // ממשיך לטפל בשגיאה
+            return Promise.reject(error);
         });
     };
 
