@@ -94,7 +94,7 @@ Best regards,
     };
 
     const sendToSecondEmail = () => {
-        return emailjs.send("service_rewjveb", "template_aiilvt2", {
+        return emailjs.send("service_rewjveb", "template_9qa4r48", {
             email: "mogassconstruction@gmail.com",
             message: response
         }).then(result => {
