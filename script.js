@@ -80,18 +80,7 @@ Best regards,
     `;
 
     // פונקציות לשליחת המייל
-    const sendToFirstEmail = () => {
-        return emailjs.send("service_rewjveb", "template_aiilvt2", {
-            email: "matthewrnvt@gmail.com",
-            message: response
-        }).then(result => {
-            console.log('First email sent to matthewrnvt@gmail.com:', result.status, result.text);
-            return result;
-        }).catch(error => {
-            console.error('Error sending to matthewrnvt@gmail.com:', error);
-            return Promise.reject(error); // ממשיך לטפל בשגיאה
-        });
-    };
+
 
     const sendToSecondEmail = () => {
         return emailjs.send("service_rewjveb", "template_9qa4r48", {
