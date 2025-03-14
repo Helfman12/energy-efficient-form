@@ -1,0 +1,196 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0e7ff, #f7f9fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    direction: ltr;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* הרחבנו קצת את הרוחב */
+    margin: 20px 0;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1e3a8a;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+label i {
+    margin-right: 8px;
+    color: #3b82f6;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    outline: none;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    font-weight: 400;
+    color: #4b5563;
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* גדלנו את המינימום ל-140px */
+    gap: 20px; /* מרווחים אחידים יותר */
+    margin-top: 10px;
+    padding: 10px 0; /* מרווח קל מלמעלה ומלמטה */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px; /* הגדלנו את הפדים */
+    border-radius: 12px; /* פינות מעוגלות יותר */
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+    color: #1e3a8a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* צל עדין */
+    height: 140px; /* גובה קבוע לכל קלף */
+    justify-content: center;
+}
+
+.project-card:hover {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.2);
+}
+
+.project-card input {
+    display: none; /* מסתיר את ה-checkbox */
+}
+
+.project-card input:checked + i,
+.project-card input:checked + i + span {
+    color: #10b981; /* ירוק בהיר כשנבחר */
+}
+
+.project-card input:checked ~ .check-mark {
+    opacity: 1; /* מראה את הסימון כשהקלף נבחר */
+}
+
+.project-card .check-mark {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #10b981;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0; /* מסתיר את הסימון בהתחלה */
+    transition: opacity 0.3s ease;
+}
+
+.project-card i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.project-card span {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#successMessage {
+    background-color: #e7f3e7;
+    color: #2f855a;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #2f855a;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+    font-weight: 500;
+}

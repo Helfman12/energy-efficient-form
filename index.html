@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficient Program Qualification</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- ייבוא Font Awesome לאייקונים -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ייבוא פונטים מ-Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Energy Efficient Program Qualification</h1>
+        <form id="applicationForm">
+            <!-- First Name -->
+            <div class="input-group">
+                <label for="firstName"><i class="fas fa-user"></i> First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="input-group">
+                <label for="lastName"><i class="fas fa-user"></i> Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+
+            <!-- Address -->
+            <div class="input-group">
+                <label for="address"><i class="fas fa-home"></i> Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <!-- Age -->
+            <div class="input-group">
+                <label for="age"><i class="fas fa-calendar-alt"></i> Age:</label>
+                <input type="number" id="age" name="age" min="1" required>
+            </div>
+
+            <!-- Zip Code -->
+            <div class="input-group">
+                <label for="zipCode"><i class="fas fa-map-marker-alt"></i> Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Would you like to improve your home's energy efficiency? -->
+            <div class="input-group">
+                <label><i class="fas fa-leaf"></i> Would you like to improve your home's energy efficiency?</label>
+                <div class="radio-group">
+                    <input type="radio" id="energyYes" name="energyEfficiency" value="Yes" required>
+                    <label for="energyYes">Yes</label>
+                    <input type="radio" id="energyNo" name="energyEfficiency" value="No">
+                    <label for="energyNo">No</label>
+                </div>
+            </div>
+
+            <!-- Is your income above $35,000 a year? -->
+            <div class="input-group">
+                <label><i class="fas fa-money-bill-wave"></i> Is your income above $35,000 a year?</label>
+                <div class="radio-group">
+                    <input type="radio" id="incomeYes" name="income" value="Yes" required>
+                    <label for="incomeYes">Yes</label>
+                    <input type="radio" id="incomeNo" name="income" value="No">
+                    <label for="incomeNo">No</label>
+                </div>
+            </div>
+
+            <!-- Are you a senior citizen? -->
+            <div class="input-group">
+                <label><i class="fas fa-user-graduate"></i> Are you a senior citizen?</label>
+                <div class="radio-group">
+                    <input type="radio" id="seniorYes" name="seniorCitizen" value="Yes" required>
+                    <label for="seniorYes">Yes</label>
+                    <input type="radio" id="seniorNo" name="seniorCitizen" value="No">
+                    <label for="seniorNo">No</label>
+                </div>
+            </div>
+
+            <!-- How much is your monthly expenses? -->
+            <div class="input-group">
+                <label for="monthlyExpenses"><i class="fas fa-wallet"></i> How much is your monthly expenses?</label>
+                <input type="number" id="monthlyExpenses" name="monthlyExpenses" min="0" required>
+            </div>
+
+            <!-- Which type of saving is most valuable to you? -->
+            <div class="input-group">
+                <label for="savingType"><i class="fas fa-piggy-bank"></i> Which type of saving is most valuable to you?</label>
+                <select id="savingType" name="savingType" required>
+                    <option value="">-- Select --</option>
+                    <option value="Electricity Saving">Electricity Saving</option>
+                    <option value="Water Saving">Water Saving</option>
+                    <option value="Gas Saving">Gas Saving</option>
+                    <option value="General Saving">General Saving</option>
+                </select>
+            </div>
+
+            <!-- How much is your electricity bill? -->
+            <div class="input-group">
+                <label for="electricityBill"><i class="fas fa-bolt"></i> How much is your electricity bill?</label>
+                <input type="number" id="electricityBill" name="electricityBill" min="0" required>
+            </div>
+
+            <!-- How much is your water bill? -->
+            <div class="input-group">
+                <label for="waterBill"><i class="fas fa-tint"></i> How much is your water bill?</label>
+                <input type="number" id="waterBill" name="waterBill" min="0" required>
+            </div>
+
+            <!-- How much is your gas bill? -->
+            <div class="input-group">
+                <label for="gasBill"><i class="fas fa-fire"></i> How much is your gas bill?</label>
+                <input type="number" id="gasBill" name="gasBill" min="0" required>
+            </div>
+
+            <!-- What Project are you interested in? -->
+            <div class="input-group">
+                <label><i class="fas fa-tools"></i> What Project are you interested in? (Select one or more)</label>
+                <div class="project-cards">
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Hvac" hidden>
+                        <i class="fas fa-fan"></i> Hvac
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Windows" hidden>
+                        <i class="fas fa-window-maximize"></i> Windows
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Solar" hidden>
+                        <i class="fas fa-solar-panel"></i> Solar
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Roof" hidden>
+                        <i class="fas fa-hard-hat"></i> Roof
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Exterior Paint" hidden>
+                        <i class="fas fa-paint-brush"></i> Exterior Paint
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Tankless Water Heater" hidden>
+                        <i class="fas fa-hot-tub"></i> Tankless Water Heater
+                        <span class="check-mark">✔</span>
+                    </label>
+                    <label class="project-card">
+                        <input type="checkbox" name="projects" value="Landscape" hidden>
+                        <i class="fas fa-leaf"></i> Landscape
+                        <span class="check-mark">✔</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- What is your monthly budget for this project? -->
+            <div class="input-group">
+                <label for="monthlyBudget"><i class="fas fa-dollar-sign"></i> What is your monthly budget for this project?</label>
+                <input type="number" id="monthlyBudget" name="monthlyBudget" min="0" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-group">
+                <label for="phoneNumber"><i class="fas fa-phone"></i> Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+            </div>
+
+            <!-- Appointment Date -->
+            <div class="input-group">
+                <label for="appointmentDate"><i class="fas fa-calendar-alt"></i> Appointment Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+
+            <button type="submit"><i class="fas fa-paper-plane"></i> Register</button>
+        </form>
+        <div id="successMessage">
+            The form has been submitted successfully! Thank you for registering.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
