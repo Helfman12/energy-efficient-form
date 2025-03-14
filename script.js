@@ -1,5 +1,32 @@
 (function() {
     emailjs.init("rx1xzUVkvGoKlA3ow"); // החלף ב-User ID שלך
+
+    // פונקציות לשליחת המייל מחוץ לבלוק ה-submit
+    const sendToFirstEmail = () => {
+        return emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            email: "matthewrnvt@gmail.com",
+            message: ""
+        }).then(result => {
+            console.log('First email sent to matthewrnvt@gmail.com:', result.status, result.text);
+            return result;
+        }).catch(error => {
+            console.error('Error sending to matthewrnvt@gmail.com:', error);
+            return Promise.reject(error);
+        });
+    };
+
+    const sendToSecondEmail = () => {
+        return emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            email: "mogassconstruction@gmail.com",
+            message: ""
+        }).then(result => {
+            console.log('Second email sent to mogassconstruction@gmail.com:', result.status, result.text);
+            return result;
+        }).catch(error => {
+            console.error('Error sending to mogassconstruction@gmail.com:', error);
+            return Promise.reject(error);
+        });
+    };
 })();
 
 document.getElementById('applicationForm').addEventListener('submit', function(event) {
@@ -13,7 +40,7 @@ document.getElementById('applicationForm').addEventListener('submit', function(e
     const zipCode = document.getElementById('zipCode').value;
     const email = document.getElementById('email').value;
     const energyEfficiency = document.querySelector('input[name="energyEfficiency"]:checked').value;
-    const annualIncome = document.getElementById('annualIncome').value; // נתון חדש
+    const annualIncome = document.getElementById('annualIncome').value;
     const seniorCitizen = document.querySelector('input[name="seniorCitizen"]:checked').value;
     const monthlyExpenses = document.getElementById('monthlyExpenses').value;
     const savingType = document.getElementById('savingType').value;
@@ -86,8 +113,8 @@ Should you have any questions or need further assistance, please feel free to re
 Best regards,
     `;
 
-    // פונקציות לשליחת המייל
-    const sendToFirstEmail = () => {
+    // עדכון ה-message בפונקציות
+    sendToFirstEmail = () => {
         return emailjs.send("service_rewjveb", "template_aiilvt2", {
             email: "matthewrnvt@gmail.com",
             message: response
@@ -100,7 +127,7 @@ Best regards,
         });
     };
 
-    const sendToSecondEmail = () => {
+    sendToSecondEmail = () => {
         return emailjs.send("service_rewjveb", "template_aiilvt2", {
             email: "mogassconstruction@gmail.com",
             message: response
