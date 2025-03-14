@@ -116,10 +116,10 @@ Best regards,
     // עדכון ה-message בפונקציות
     sendToFirstEmail = () => {
         return emailjs.send("service_rewjveb", "template_aiilvt2", {
-            email: "matthewrnvt@gmail.com",
+            email: "matanhelfman@gmail.com",
             message: response
         }).then(result => {
-            console.log('First email sent to matthewrnvt@gmail.com:', result.status, result.text);
+            console.log('First email sent to matanhelfman@gmail.com:', result.status, result.text);
             return result;
         }).catch(error => {
             console.error('Error sending to matthewrnvt@gmail.com:', error);
