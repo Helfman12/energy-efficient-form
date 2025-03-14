@@ -29,9 +29,15 @@ document.getElementById('applicationForm').addEventListener('submit', function(e
     // שם הלקוח המלא
     const customerName = `${firstName} ${lastName}`;
 
+    // עיבוד מספר הטלפון לפורמט עם מקפים (למשל, 1234567890 -> 123-456-7890)
+    let formattedPhoneNumber = phoneNumber;
+    if (phoneNumber.length === 10) {
+        formattedPhoneNumber = `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+    }
+
     // תוכן המייל כטקסט פשוט עם קווים מפרידים
     const response = `
-Application Approval
+Energy Efficient Program Qualification
 
 Dear Matthew,
 
@@ -45,7 +51,7 @@ Company Information
 Customer Information
 - Customer Name: ${customerName}
 - Address: ${address}
-- Phone Number: ${phoneNumber}
+- Phone Number: ${formattedPhoneNumber}
 
 --------------------------------
 Project Information
