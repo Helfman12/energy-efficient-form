@@ -89,7 +89,7 @@ Best regards,
             return result;
         }).catch(error => {
             console.error('Error sending to matthewrnvt@gmail.com:', error);
-            throw error; // ממשיך לטפל בשגיאה
+            return Promise.reject(error); // ממשיך לטפל בשגיאה
         });
     };
 
@@ -102,13 +102,12 @@ Best regards,
             return result;
         }).catch(error => {
             console.error('Error sending to mogassconstruction@gmail.com:', error);
-            throw error; // ממשיך לטפל בשגיאה
+            return Promise.reject(error); // ממשיך לטפל בשגיאה
         });
     };
 
-    // שולח את המייל לשני האימיילים ברצף
-    sendToFirstEmail()
-        .then(() => sendToSecondEmail())
+    // שולח את שני המיילים במקביל עם Promise.all
+    Promise.all([sendToFirstEmail(), sendToSecondEmail()])
         .then(() => {
             // הצגת הודעת הצלחה לאחר שליחת שני המיילים
             document.getElementById('successMessage').style.display = 'block';
@@ -116,7 +115,7 @@ Best regards,
             console.log('Both emails sent successfully!');
         })
         .catch(function(error) {
-            alert('Error sending the form: ' + error.text);
+            alert('Error sending the form: ' + (error.text || error));
             console.log('FAILED...', error);
         });
 });
