@@ -79,32 +79,41 @@ Should you have any questions or need further assistance, please feel free to re
 Best regards,
     `;
 
-    // שולח את המייל לשני אימיילים
+    // פונקציות לשליחת המייל
     const sendToFirstEmail = () => {
         return emailjs.send("service_rewjveb", "template_aiilvt2", {
-            email: "matthewrnvt@gmail.com", // אימייל ראשון
+            email: "matthewrnvt@gmail.com",
             message: response
+        }).then(result => {
+            console.log('First email sent to matthewrnvt@gmail.com:', result.status, result.text);
+            return result;
+        }).catch(error => {
+            console.error('Error sending to matthewrnvt@gmail.com:', error);
+            throw error; // ממשיך לטפל בשגיאה
         });
     };
 
     const sendToSecondEmail = () => {
         return emailjs.send("service_rewjveb", "template_aiilvt2", {
-            email: "mogassconstruction@gmail.com", // החלף ב-aימייל השני (למשל, "example@email.com")
+            email: "mogassconstruction@gmail.com",
             message: response
+        }).then(result => {
+            console.log('Second email sent to mogassconstruction@gmail.com:', result.status, result.text);
+            return result;
+        }).catch(error => {
+            console.error('Error sending to mogassconstruction@gmail.com:', error);
+            throw error; // ממשיך לטפל בשגיאה
         });
     };
 
     // שולח את המייל לשני האימיילים ברצף
     sendToFirstEmail()
-        .then(function(response) {
-            console.log('First email sent!', response.status, response.text);
-            return sendToSecondEmail();
-        })
-        .then(function(response) {
-            console.log('Second email sent!', response.status, response.text);
+        .then(() => sendToSecondEmail())
+        .then(() => {
             // הצגת הודעת הצלחה לאחר שליחת שני המיילים
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('applicationForm').reset();
+            console.log('Both emails sent successfully!');
         })
         .catch(function(error) {
             alert('Error sending the form: ' + error.text);
